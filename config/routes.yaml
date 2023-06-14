@@ -3,3 +3,35 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# Mes routes:
+app_main:
+    path: /main 
+    controller: App\Controller\MainController::index   
+
+# exercice 1
+app_tirage_loto:    
+    path: /tirage/loto
+    controller: App\Controller\TirageController::tirageLoto
+
+
+app_tirage_keno:    
+    path: /tirage/keno
+    controller: App\Controller\TirageController::tirageKeno
+
+# url parametrées :
+
+app_tirage_aleatoire:
+    path: /tirage/{nom_du_jeu}/{num_tires}/{num_total}
+    controller: App\Controller\TirageAleatoireController::tirage
+
+app_post_show:
+    path: /blog/post/{id}
+    controller: App\Controller\BlogController::show
+    methods: GET|POST 
+    condition: "params['id'] < 1000"
+
+app_post_edit:
+    path: /blog/post/{id}
+    controller: App\Controller\BlogController::edit
+    methods: PUT
